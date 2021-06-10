@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body style="font-family: 'Montserrat', sans-serif;">
+
+<div class="container border border-dark bg-light rounded" style="margin-top: 50px;">
+<div style="margin-top: 20px;">
+    <form action="/profile" method="post" enctype="multipart/form-data">
+        <input type="file" name="avatar" />
+        
+        <button  type="button" class="btn btn-secondary"  style="  padding: 0.2% 1%;">Enviar</button>
+      </form>
+      <div class="container">
+
+    </div>
+    <br>
+    <div class="border-top">
+     </div>
+<div style="margin-top: 15px;">
+  <div class="row">
+  <div class="col-6">
+<p> Marquito.jpg</p>
+</div>
+
+<div class="col-3">
+  <p>Amxi3Qs8xXkPd9QnxMsuU48sNs8xS</p>
+</div>
+
+
+<div class="col-3">
+  <button  type="button" class="btn btn-success" style="  padding: 1% 10%; margin-left: 25%; ">Descargar</button>
+</div>
+
+</div>
+<a href="http://localhost/ipfs/public/index.php">Ver archivos</a>
+</div>
+
+<div class="border-top">
+ </div>
+
+
+</div>
+<br>
+      <div style="margin-bottom: 20px;">
+      <input id="fileHash" type="text" placeholder="Hash" style="width: 40%;">
+      <button onclick="loadDoc()" type="button" class="btn btn-primary"  style="  padding: 0.3% 1%;" >Ver archivo</button>
+
+      <br>
+
+<br>
+<input id="fileHashDownload" type="text" placeholder="Hash" style="width: 40%;">
+      <button onclick="download()" type="button" class="btn btn-success" style="  padding: 0.3% 1%;" > Descargar</button>
+    </div>
+  
+  
+
+  
+  </div>
+</body>
+<script>
+    function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        console.log(this);
+        window.open(this.responseURL);
+ 
+    }
+  };
+  console.log(document.getElementById("fileHash").value);
+  xhttp.open("GET", "download/"+document.getElementById("fileHash").value, true);
+  xhttp.send();
+}
+</script>
+
+<script>
+   function download() {
+  var xhttp = new XMLHttpRequest();
+  
+  console.log(document.getElementById("fileHashDownload").value);
+  xhttp.open("GET", "download1/"+document.getElementById("fileHashDownload").value, true);
+  xhttp.send();
+}
+
+
+</script>
+<script>
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
